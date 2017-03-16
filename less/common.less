@@ -1,0 +1,82 @@
+.boxSizing(@box){
+             box-sizing:@box;
+             -moz-box-sizing:@box; /* Firefox */
+             -webkit-box-sizing:@box; 
+             -ms-box-sizing:@box;
+             -o-border-sizing:@box;             
+ }//默认内容分块儿框架
+.radius(@radius){
+    border-radius:@radius;
+    -webkit-border-radius:@radius;
+    -o-border-radius:@radius;
+    -moz-border-radius:@radius;
+    -ms-border-radius:@radius;
+    behavior:url(ie-css3.htc);
+}
+
+.keyframes (@name, @frames) {
+    @-webkit-keyframes @name { @frames(); }
+    @-moz-keyframes @name { @frames(); }
+    @-ms-keyframes @name { @frames();}
+    @-o-keyframes @name { @frames(); }
+    @keyframes @name { @frames(); }
+}
+
+.transform(@attr){
+    -webkit-transform:@attr;
+    -moz-transform:@attr;
+    -o-transform:@attr;
+    -ms-transform:@attr;
+    transform:@attr;
+}
+.transformOrigin(@attr){
+    -webkit-transform-origin:@attr;
+    -moz-transform-origin:@attr;
+    -o-transform-origin:@attr;
+    -ms-transform-origin:@attr;
+    transform-origin:@attr;
+}
+.animation(@attr){ 
+    -webkit-animation:@attr;
+    -moz-animation:@attr;
+    -ms-animation:@attr;
+    -o-animation:@attr;
+    animation:@attr;
+}
+
+.cf{
+  content: "";
+  display: block;
+  clear: both;      
+}
+.auto{
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  margin:auto;
+}
+.ellipsis{
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+
+.opacity(@rgba1;@rgba2){
+    filter:alpha(opacity=@rgba2);   
+    -moz-opacity:@rgba1;   
+    -webkit-opacity:@rgba1;   
+    opacity: @rgba1;     
+}
+@font-face
+{
+  font-family: Constantia;
+  src: url('fonts/Constantia.ttf');
+}
+@font-face
+{
+  font-family: Vanib;
+  src: url('fonts/Vanib.ttf');
+}
+
