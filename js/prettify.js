@@ -1,5 +1,7 @@
 $(function(){
-	$(".pre").each(function(){
+	$("pre").each(function(){
+		$(this).addClass("linenums");
+		$(this).addClass("prettyprint");
 		var a = $(this).html();
 			a = a.replace(/</g, "&lt;");
 			a = a.replace(/>/g, "&gt;");
@@ -8,5 +10,8 @@ $(function(){
 			a = a.replace(/{/g, "<span>{</span>");
 			a = a.replace(/}/g, "<span>}</span>");
 			$(this).html(a);
+	})
+	$(window).load(function(){	     
+	     prettyPrint();
 	})
 });

@@ -1,0 +1,46 @@
+html{
+	background: url(../img/cover1.jpg) repeat-y center center;
+	background-size: 100%;	
+}
+body{
+	width: 900px;
+	margin: 0 auto;
+	font-family: "微软雅黑";
+	padding-bottom: 500px;
+	background: #ccc;
+}
+h1,h2,h3,h4,h5,h6{
+	font-weight: bold;
+}
+h1{
+	font-size: 22px;
+}
+h2{
+	font-size: 20px;
+}
+h3{
+	font-size: 18px;
+	margin-bottom: 20px;
+}
+h4{
+	font-size: 16px;
+	margin: 10px 0;
+}
+h5{
+	font-size: 14px;
+}
+ol,ul {
+    list-style:disc;
+    margin-left: 20px;
+}
+ul li{
+	font-size: 12px;
+	font-weight: bold;
+}
+section{
+	padding: 10px 20px;
+}
+pre{
+	background: #fff;
+	margin: 15px 0;
+}
