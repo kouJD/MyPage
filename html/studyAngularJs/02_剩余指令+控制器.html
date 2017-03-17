@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../../lib/css/prettify.css"/>
+		<style>
+			ul li{
+				font-size: 12px;
+				font-family: "微软雅黑";
+				font-weight: bold;
+			}
+		</style>
+	</head>
+	<body onload="prettyPrint()">
+		<h3>巧用ng-model</h3>
+		<!--
+			angular循环类似js的for in循环
+		-->
+		<pre class="prettyprint linenums pre">
+			<div>			
+				<p>单价：<input type="number" ng-model="single"/></p>
+				<p>数量：<input type="number" ng-model="num"/></p>
+				<p>总价：{{ single*num }}</p>
+			</div>
+		</pre>
+		<div>			
+			<p>单价：<input type="number" ng-model="single"/></p>
+			<p>数量：<input type="number" ng-model="num"/></p>
+			<p>总价：{{ single*num }}</p>
+		</div>
+		<hr />
+		<h3>angular 的循环 ng-repeat</h3>
+		<pre class="prettyprint linenums pre">
+			<div  ng-init="name=['tom','kai','hege']">
+				此次参加活动的有：
+				<ol>
+					<li ng-repeat="x in name">
+						{{ x }}
+					</li>
+				</ol>
+			</div>
+		</pre>
+		<div  ng-init="name=['tom','kai','hege']">
+			此次参加活动的有：
+			<ol>
+				<li ng-repeat="x in name">
+					{{ x }}
+				</li>
+			</ol>
+		</div>
+		<hr />
+		<h3>循环对象数组</h3>
+		<pre class="prettyprint linenums pre">
+			<div ng-init="people=[
+				{name:'tom',age:'13'},
+				{name:'kai',age:'12'},
+				{name:'kege',age:'11'}]">
+				<ol>
+					<li ng-repeat="x in people">
+						{{ x.name +",  "+ x.age }}
+					</li>
+				</ol>
+			</div>
+		</pre>
+		<div ng-init="people=[
+			{name:'tom',age:'13'},
+			{name:'kai',age:'12'},
+			{name:'kege',age:'11'}]">
+			<ol>
+				<li ng-repeat="x in people">
+					{{ x.name +",  "+ x.age }}
+				</li>
+			</ol>
+		</div>
+		<hr />
+		<h3>angular 控制器 ng-controller</h3>	
+		<ul>
+			<li>angular应用程序被控制器控制。</li>
+			<li>ng-controller指令定义了程序控制器。</li>
+			<li>控制器是js对象，由标准的js对象的构造函数创建。</li>
+			<li>控制器的$scope(范围)是控制器所指向的html元素。（与js传的参数类似</li>
+			<li>var app = angular.module('myApp',[]);取得ng-app名为myApp的angular模版（module）及它所有的控制器</li>
+			<li>app.controller('myCtrl',function($scope))取得myApp所有控制器中的myCtrl，并给它创建函数</li>
+			<li>$scope 作用域：</li>
+			<li>&nbsp;&nbsp;&nbsp;&nbsp;scopr(作用域)是应用在html（视图）和js（控制器）之间的纽带</li>
+			<li>&nbsp;&nbsp;&nbsp;&nbsp;scopr是一个对象，有可用的方法和属性</li>
+			<li>&nbsp;&nbsp;&nbsp;&nbsp;scopr可应用在视图和控制器上</li>
+			<li>&nbsp;&nbsp;&nbsp;&nbsp;当在angular中创建控制器时，可以将$scopr对象当作一个参数传递</li>
+			<li>&nbsp;&nbsp;&nbsp;&nbsp;当在控制器中添加$scopr对象时，视图可以获取这些属性</li>
+			<li>&nbsp;&nbsp;&nbsp;&nbsp;视图中，你不需要添加$scopr前缀，只需要添加属性名即可</li>
+			<li><hr /></li>
+			<li>根作用域 $rookScope</li>
+			<li>所有的应用都有一个$rookScope,它可以作用在mg-app指令包含的所有html元素中。</li>
+			<li>$rootScope 可作用于整个应用中。是各个 controller 中 scope 的桥梁。用 rootscope 定义的值，可以在各个 controller 中使用。</li>
+		</ul>
+		<h4>一个ng-app里可以有很多控制器</h4>
+			
+		<pre class="prettyprint linenums pre">
+			<div ng-controller="myCtrl">
+				名字：<input type="text" ng-model="firstName"><br >
+				姓氏：<input type="text" ng-model="lastName"><br >
+				姓名： {{ firstName + " " + lastName }}
+			</div>			
+		</pre>
+		<div ng-controller="myCtrl">
+			名字：<input type="text" ng-model="firstName"><br >
+			姓氏：<input type="text" ng-model="lastName"><br >
+			姓名： {{ firstName + " " + lastName }}
+		</div>
+		<pre class="prettyprint linenums pre">
+			<div  ng-controller="root">
+				<h5>{{ lastname }} 家庭成员：</h5>
+				<ol>
+					<li ng-repeat=" x in mingzi ">{{ x }}</li>
+				</ol>
+			</div>
+		</pre>
+		<div  ng-controller="root">
+			<h5>{{ lastname }} 家庭成员：</h5>
+			<ol>
+				<li ng-repeat=" x in mingzi ">{{ x }}</li>
+			</ol>
+		</div>
+		<pre class="prettyprint linenums pre">
+			<script>
+				var app = angular.module('myApp',[]);
+				app.controller('myCtrl',function($scope){
+					$scope.firstName = "John";
+					$scope.lastName = "Doe";
+				});
+				
+				app.controller('root',function($scope,$rootScope){
+					$scope.mingzi = ["Emil","Tobias","Linus"];
+					$rootScope.lastname = "Refsnes";
+				});	
+			</script>
+		</pre>
+		<pre id="pre">
+			
+		</pre>
+	</body>
+	<script src="../../lib/js/jquery-1.9.1.min.js"></script>
+	<script src="../../js/prettify.js"></script>
+	<script src="../../lib/js/angular.min.js"></script>
+	<script src="../../lib/js/prettify.js"></script>
+	<script>
+		var app = angular.module('myApp',[]);
+		app.controller('myCtrl',function($scope){
+			$scope.firstName = "John";
+			$scope.lastName = "Doe";
+		});
+		
+		app.controller('root',function($scope,$rootScope){
+			$scope.mingzi = ["Emil","Tobias","Linus"];
+			$rootScope.lastname = "Refsnes";
+		});			
+	</script>
+</html>
