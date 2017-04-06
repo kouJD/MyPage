@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="twoApp">
 	<head>
 		<meta charset="UTF-8">
 		<title>angular 过滤器</title>
+		<link rel="stylesheet" href="../../lib/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../../lib/css/bootstrap-extend.min.css" />
 		<link rel="stylesheet" href="../../lib/css/prettify.css" />
 		<link rel="stylesheet" href="../../css/base.css" />
 		<link rel="stylesheet" type="text/css" href="../../css/angularBase.css"/>
@@ -12,7 +14,7 @@
 			<h3>angular 过滤器</h3>
 			<p>过滤器可以使用一个管道字符（|）添加到表达式和指令中</p>
 			<p>angular过滤器可以用来转换数据，方法有：</p>
-			<table border="" cellspacing="" cellpadding="" width="100%" style="background: #fff;">
+			<table border="" cellspacing="" cellpadding="" width="100%" class="fff">
 				<tr>
 					<th>过滤器</th>					
 					<th>描述</th>					
@@ -35,12 +37,57 @@
 				</tr>
 				<tr>
 					<td>uppercase</td>
-					<td>格式化字符船为大写</td>
+					<td>格式化字符串为大写</td>
 				</tr>
 			</table>
 		</section>
+		<hr />
+		<section>
+			<h3>表达式中添加过滤器</h3>
+			<p>过滤器可以通过一个管道字符（|）和一个过滤器添加到表达式中</p>
+			<p><b>uppercase</b>过滤器将字符串格式化为大写：</p>
+			<pre>
+<div ng-controller="twoCtrl">
+	<p>{{ lastName | uppercase }}</p>				
+</div>
+			</pre>
+			<h5>输出为：</h5>
+			<div ng-controller="twoCtrl">
+				<p>{{ lastName | uppercase }}</p>				
+			</div>
+		</section>
+		<hr />
+		<section>
+			<h4><b>currency</b>格式化数字为货币格式（自动在前面添加$符，并且自动添加小数点什么的）</h4>
+			<pre>
+<div ng-contriller="threeCtrl">
+	单价：<input type="number" ng-model="quantity"/>				
+	总价：<input type="number" ng-model="price"/>
+	<p>需付：{{ (quantity*price) | currency }}</p>
+</div>				
+			</pre>
+			<h5>输出为：</h5>
+			<div ng-contriller="threeCtrl">
+				单价：<input type="number" ng-model="quantity"/>				
+				总价：<input type="number" ng-model="price"/>
+				<p>需付：{{ (quantity*price) | currency }}</p>
+			</div>
+		</section>
+		<hr />
+		<section>
+			<h3>向指令添加过滤器</h3>
+			
+		</section>
+		<div class="panel panel-info panel-bordered animation-scale-down" data-plugin="appear" data-animate="scale-down" style="margin-top: 400px;">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Animate Fade</h3>
+                </div>
+                <div class="panel-body">Using <code>data-plugin="appear"</code> and <code>data-animate="fade"</code>                  to add appear animate.</div>
+              </div>
 	</body>
+	
 	<script src="../../lib/js/jquery-1.9.1.min.js"></script>
+	<script src="../../lib/js/bootstrap.min.js"></script>
 	<script src="../../js/prettify.js"></script>
 	<script src="../../lib/js/angular.min.js"></script>
 	<script src="../../lib/js/prettify.js"></script>

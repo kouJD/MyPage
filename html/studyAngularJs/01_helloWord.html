@@ -10,11 +10,11 @@
 <body>
 	<section>		
 		<pre>
-			ng-app: 	表示整个页面由angularjs来管理
-			ng-model：	将input里的值绑定到ng-modal后面引号里的变量名上，在需要用的地方{{ 该变量名 }}就可以
-			ng-init:	初始化信息
-			ng-bind：	可以将ng-init里的变量名绑定到元素上以获取它的值
-			angular里的字符串、对象、数组，跟js里的字符串、对象、数组的定义、获取方法一致
+ng-app: 	表示整个页面由angularjs来管理
+ng-model：	将input里的值绑定到ng-modal后面引号里的变量名上，在需要用的地方{{ 该变量名 }}就可以
+ng-init:	初始化信息
+ng-bind：	可以将ng-init里的变量名绑定到元素上以获取它的值
+angular里的字符串、对象、数组，跟js里的字符串、对象、数组的定义、获取方法一致
 			
 		</pre>
 	</section>
@@ -22,12 +22,12 @@
 	<section>		
 		<h3>angular 事件绑定</h3>
 		<pre>
-			<div>
-				<label for="">name:</label>
-				<input type="text" ng-model="yourName" placeholder="请输入"/>
-				<hr />
-				<h1>hello {{ yourName }}!</h1>
-			</div>
+<div>
+	<label for="">name:</label>
+		<input type="text" ng-model="yourName" placeholder="请输入"/>
+		<hr />
+	<h1>hello {{ yourName }}!</h1>
+</div>
 		</pre>
 		<div>
 			<label for="">name:</label>
@@ -40,11 +40,11 @@
 	<section>		
 		<h3>angular 字符串</h3>
 		<pre>
-			<div ng-init="firstName='John';lastName='Doe'">
-				<p>姓名：<span ng-bind="firstName +''+ lastName"></span></p>
-				<b>或者</b>
-				<p>姓名：{{ firstName+lastName }}</p>
-			</div>
+<div ng-init="firstName='John';lastName='Doe'">
+	<p>姓名：<span ng-bind="firstName +''+ lastName"></span></p>
+	<b>或者</b>
+	<p>姓名：{{ firstName+lastName }}</p>
+</div>
 		</pre>
 		<div ng-init="firstName='John';lastName='Doe'">
 			<p>姓名：<span ng-bind="firstName +''+ lastName"></span></p>
@@ -56,11 +56,11 @@
 	<section>		
 		<h3>angular 对象</h3>
 		<pre>
-			<div ng-init="person={firstName:'John',lastName:'Doe'}">
-				<p>姓：<span ng-bind="person.lastName"></span></p>
-				<b>或者</b>
-				<p>姓：{{ person.lastName }}</p>
-			</div>
+<div ng-init="person={firstName:'John',lastName:'Doe'}">
+	<p>姓：<span ng-bind="person.lastName"></span></p>
+	<b>或者</b>
+	<p>姓：{{ person.lastName }}</p>
+</div>
 		</pre>
 		<div ng-init="person={firstName:'John',lastName:'Doe'}">
 			<p>姓：<span ng-bind="person.lastName"></span></p>
@@ -72,11 +72,11 @@
 	<section>	
 		<h3>angular 数组</h3>
 		<pre>
-			<div ng-init="peron=[1,2,3,4,5]">
-				<p>第三个值为：<span ng-bind="person[2]"></span></p>
-				<b>或者</b>
-				<p>第三个值为：{{ peron[2] }}</p>
-			</div>
+<div ng-init="peron=[1,2,3,4,5]">
+	<p>第三个值为：<span ng-bind="person[2]"></span></p>
+	<b>或者</b>
+	<p>第三个值为：{{ peron[2] }}</p>
+</div>
 		</pre>
 		<div ng-init="peron=[1,2,3,4,5]">
 			<p>第三个值为：<span ng-bind="person[2]"></span></p>

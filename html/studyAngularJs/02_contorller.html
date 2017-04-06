@@ -10,15 +10,14 @@
 	<body>
 		<section>			
 			<h3>巧用ng-model</h3>
-			<!--
 				angular循环类似js的for in循环
-			-->
+
 			<pre>
-				<div>			
-					<p>单价：<input type="number" ng-model="single"/></p>
-					<p>数量：<input type="number" ng-model="num"/></p>
-					<p>总价：{{ single*num }}</p>
-				</div>
+<div>			
+	<p>单价：<input type="number" ng-model="single"/></p>
+	<p>数量：<input type="number" ng-model="num"/></p>
+	<p>总价：{{ single*num }}</p>
+</div>
 			</pre>
 			<div>			
 				<p>单价：<input type="number" ng-model="single"/></p>
@@ -30,14 +29,14 @@
 		<section>			
 			<h3>angular 的循环 ng-repeat</h3>
 			<pre>
-				<div  ng-init="name=['tom','kai','hege']">
-					此次参加活动的有：
-					<ol>
-						<li ng-repeat="x in name">
-							{{ x }}
-						</li>
-					</ol>
-				</div>
+<div  ng-init="name=['tom','kai','hege']">
+	此次参加活动的有：
+	<ol>
+		<li ng-repeat="x in name">
+			{{ x }}
+		</li>
+	</ol>
+</div>
 			</pre>
 			<div  ng-init="name=['tom','kai','hege']">
 				此次参加活动的有：
@@ -52,16 +51,16 @@
 		<section>			
 			<h3>循环对象数组</h3>
 			<pre>
-				<div ng-init="people=[
-					{name:'tom',age:'13'},
-					{name:'kai',age:'12'},
-					{name:'kege',age:'11'}]">
-					<ol>
-						<li ng-repeat="x in people">
-							{{ x.name +",  "+ x.age }}
-						</li>
-					</ol>
-				</div>
+<div ng-init="people=[
+	{name:'tom',age:'13'},
+	{name:'kai',age:'12'},
+	{name:'kege',age:'11'}]">
+	<ol>
+		<li ng-repeat="x in people">
+			{{ x.name +",  "+ x.age }}
+		</li>
+	</ol>
+</div>
 			</pre>
 			<div ng-init="people=[
 				{name:'tom',age:'13'},
@@ -99,11 +98,11 @@
 			<h4>一个ng-app里可以有很多控制器</h4>
 				
 			<pre>
-				<div ng-controller="myCtrl">
-					名字：<input type="text" ng-model="firstName"><br >
-					姓氏：<input type="text" ng-model="lastName"><br >
-					姓名： {{ firstName + " " + lastName }}
-				</div>			
+<div ng-controller="myCtrl">
+	名字：<input type="text" ng-model="firstName"><br >
+	姓氏：<input type="text" ng-model="lastName"><br >
+	姓名： {{ firstName + " " + lastName }}
+</div>			
 			</pre>
 			<div ng-controller="myCtrl">
 				名字：<input type="text" ng-model="firstName"><br >
@@ -111,12 +110,12 @@
 				姓名： {{ firstName + " " + lastName }}
 			</div>
 			<pre>
-				<div  ng-controller="root">
-					<h5>{{ lastname }} 家庭成员：</h5>
-					<ol>
-						<li ng-repeat=" x in mingzi ">{{ x }}</li>
-					</ol>
-				</div>
+<div  ng-controller="root">
+	<h5>{{ lastname }} 家庭成员：</h5>
+	<ol>
+		<li ng-repeat=" x in mingzi ">{{ x }}</li>
+	</ol>
+</div>
 			</pre>
 			<div  ng-controller="root">
 				<h5>{{ lastname }} 家庭成员：</h5>
@@ -125,18 +124,18 @@
 				</ol>
 			</div>
 			<pre>
-				<script>
-					var app = angular.module('myApp',[]);
-					app.controller('myCtrl',function($scope){
-						$scope.firstName = "John";
-						$scope.lastName = "Doe";
-					});
-					
-					app.controller('root',function($scope,$rootScope){
-						$scope.mingzi = ["Emil","Tobias","Linus"];
-						$rootScope.lastname = "Refsnes";
-					});	
-				</script>
+<script>
+	var app = angular.module('myApp',[]);
+	app.controller('myCtrl',function($scope){
+		$scope.firstName = "John";
+		$scope.lastName = "Doe";
+	});
+	
+	app.controller('root',function($scope,$rootScope){
+		$scope.mingzi = ["Emil","Tobias","Linus"];
+		$rootScope.lastname = "Refsnes";
+	});	
+</script>
 			</pre>
 		</section>
 	</body>

@@ -14,4 +14,9 @@ $(function(){
 	$(window).load(function(){	     
 	     prettyPrint();
 	})
+	var app = angular.module('twoApp',[]);
+	app.controller('twoCtrl',function($scope){
+		$scope.firstName = "John";
+		$scope.lastName = "Doe";
+	});
 });
