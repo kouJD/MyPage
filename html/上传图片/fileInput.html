@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>上传图片</title>
+		<link rel="stylesheet" href="../../lib/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/fileInput.css"/>
+		<script src="../../lib/js/jquery-1.9.1.min.js"></script>
+		<script src="../../lib/js/jQuery.MultiFile.min.js"></script>
+	</head>
+	<body>
+		<input type="file" id="files" name="images[]" class="multi with-preview" multiple=""/>
+	</body>
+	<script>
+		$(function(){
+			function handleDragOver(evt) {
+			    evt.stopPropagation();
+			    evt.preventDefault();
+			    evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
+			}
+			var dropZone = document.getElementById('sss);
+				dropZone.addEventListener('dragover', MultiFile, false);
+				dropZone.addEventListener('drop', MultiFile, false);
+			})
+	</script>
+</html>
