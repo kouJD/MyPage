@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	<style>
+  .thumb {
+    height: 75px;
+    border: 1px solid #000;
+    margin: 10px 5px 0 0;
+  }
+</style>
+
+<input type="file" id="files" name="files[]" multiple />
+<div id="list"></div>
+
+<script>
+  function handleFileSelect(evt) {
+    var files = evt.target.files; 
+
+
+    for (var i = 0, f; f = files[i]; i++) {
+
+
+      if (!f.type.match('image.*')) {
+        alert("不是图片")
+        
+        continue;
+      }
+
+      var reader = new FileReader();
+
+      
+      reader.onload = (function(theFile) {
+        return function(e) {
+          
+          var div = document.createElement('ul');
+          div.innerHTML = ['<li><img class="thumb" src="', e.target.result,'"/><span>', theFile.name, '</span></li>'].join('');
+          document.getElementById('list').insertBefore(div, null);
+        };
+      })(f);
+
+      
+      reader.readAsDataURL(f);
+    }
+  }
+
+  document.getElementById('files').addEventListener('change', handleFileSelect, false);
+</script>
+</body>
+</html>
